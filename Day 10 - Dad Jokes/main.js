@@ -5,7 +5,20 @@ jokeBtn.addEventListener('click', genearteJoke)
 
 genearteJoke()
 
-function genearteJoke() {
+async function genearteJoke() {
+  const config =  {
+    headers: {
+      'Accept': 'application/json',
+    },
+  }
+
+  const res = fetch('https://icanhazdadjoke.com', config)
+  const data = await (await res).json()
+
+    jokeEl.innerHTML = data.joke
+}
+
+/* function genearteJoke() {
   const config =  {
     headers: {
       'Accept': 'application/json'
@@ -17,4 +30,4 @@ function genearteJoke() {
   .then((data) => {
     jokeEl.innerHTML = data.joke
   })
-}
+} */

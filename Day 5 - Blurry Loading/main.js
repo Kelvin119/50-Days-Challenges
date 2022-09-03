@@ -4,11 +4,15 @@ const bg = document.querySelector('.bg')
 let load = 0
 
 let int = setInterval(blurring, 30)
+
+// line 6 involves using setInterval to run the function blurring every 30ms
+
 function blurring() {
   load++
 
   if (load > 99){
     clearInterval(int)
+    // clearInterval() stops the function int from continously running if the number is greater than 99
   }
 
   loadText.innerText = `${load}%`
